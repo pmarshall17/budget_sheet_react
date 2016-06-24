@@ -7,10 +7,48 @@
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="http://localhost:3808/webpack-dev-server.js"></script>
+  <script type='text/javascript' src='javascript/app.js'></script>
 </head>
 <body>
 
 <%= yield %>
+
+<body>
+
+	<div id = 'calculator' class="row" class="container">
+		
+		<div><p id="result" class="result"></p></div>
+
+		<span onclick="addValue(7)" class="waves-effect waves-light btn">7</span>
+		<span onclick="addValue(8)" class="waves-effect waves-light btn">8</span>
+		<span onclick="addValue(9)" class="waves-effect waves-light btn">9</span>
+		<span onclick="addValue('+')" class="waves-effect waves-light btn">+</span>
+
+		<span onclick="addValue(4)" class="waves-effect waves-light btn">4</span>
+		<span onclick="addValue(5)" class="waves-effect waves-light btn">5</span>
+		<span onclick="addValue(6)" class="waves-effect waves-light btn">6</span>
+		<span onclick="addValue('-')" class="waves-effect waves-light btn">-</span>
+
+		<span onclick="addValue(1)" class="waves-effect waves-light btn">1</span>
+		<span onclick="addValue(2)" class="waves-effect waves-light btn">2</span>
+		<span onclick="addValue(3)" class="waves-effect waves-light btn">3</span>
+		<span onclick="addValue('/')" class="waves-effect waves-light btn">/</span>
+
+		<span onclick="addValue(0)" class="waves-effect waves-light btn">0</span>
+		<span onclick="addValue('.')" class="waves-effect waves-light btn">.</span>
+		<span onclick="calculate('=')" class="waves-effect waves-light btn">=</span>
+		<span onclick="addValue('*')" class="waves-effect waves-light btn">x</span>
+
+		<span class="waves-effect waves-light btn" id="clear" onclick="clearResults()">Clear All</span>
+
+	</div>
+	
+<footer>
+	<h4 class = "history_header">History</h4>
+	<div class="border">
+		<div><p id="history"></p></div>
+	</div>	
+</footer>
 
 <%= javascript_include_tag *webpack_asset_paths('application') %>
 </body>
