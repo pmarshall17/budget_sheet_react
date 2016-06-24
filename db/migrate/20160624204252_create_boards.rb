@@ -1,7 +1,9 @@
 class CreateBoards < ActiveRecord::Migration
   def change
     create_table :boards do |t|
-      t.string :belongs_to
+    	t.string :category
+    	t.string :sub_category
+    	t.float :value
 
       t.timestamps null: false
     end

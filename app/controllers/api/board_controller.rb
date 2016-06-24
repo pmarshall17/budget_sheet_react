@@ -1,5 +1,4 @@
-class Api::BoardsController < ApplicationController
-
+class BoardController < ApplicationController
   def index
   end
 
@@ -20,5 +19,4 @@ class Api::BoardsController < ApplicationController
 
   def create
   end
-  
 end
