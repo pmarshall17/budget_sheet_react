@@ -3,7 +3,7 @@ class CreateBoards < ActiveRecord::Migration
     create_table :boards do |t|
     	t.string :category
     	t.string :sub_category
-    	t.float :value
+    	t.float :money_value
 
       t.timestamps null: false
     end
