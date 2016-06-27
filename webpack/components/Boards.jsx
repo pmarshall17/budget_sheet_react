@@ -19,46 +19,46 @@ class Boards extends React.Component {
         })
   }
 
-  addBoard(e) {
-    // prevent default form submit from happening
-    e.preventDefault();
-    // make ajax call to create a new board
-    let name = this.refs.name.value;
-    let description = this.refs.description.value;
-    $.ajax({
-      url: '/boards',
-      type: 'POST',
-      data: { board: { name, description } },
-      dataType: 'JSON'
-    }).done( board => {
-      this.props.addBoard(board);
-      this.refs.addForm.reset();
-    }).fail( response => {
-      alert(response.errors.toString());
-    });
-  }
+  // addBoard(e) {
+  //   // prevent default form submit from happening
+  //   e.preventDefault();
+  //   // make ajax call to create a new board
+  //   let name = this.refs.name.value;
+  //   let description = this.refs.description.value;
+  //   $.ajax({
+  //     url: '/boards',
+  //     type: 'POST',
+  //     data: { board: { name, description } },
+  //     dataType: 'JSON'
+  //   }).done( board => {
+  //     this.props.addBoard(board);
+  //     this.refs.addForm.reset();
+  //   }).fail( response => {
+  //     alert(response.errors.toString());
+  //   });
+  // }
 
-    deleteBoards(id) {
-    $.ajax({
-      url: `/api/boards/${id}`,
-      type: 'DELETE',
-      dataType: 'JSON'
-    }).done( data => {
-      // least efficient way - easiest to understand
-        // this.fetchBoards();
-      // most efficient way - harder to understand
-      let boards = this.state.boards;
-      let index = boards.findIndex( b => b.id === id);
-      this.setState({
-        boards: [
-          ...boards.slice(0, index),
-          ...boards.slice(index + 1, boards.length)
-        ]
-      });
-    }).fail( data => {
-      console.log(data);
-    });
-  }
+  //   deleteBoards(id) {
+  //   $.ajax({
+  //     url: `/api/boards/${id}`,
+  //     type: 'DELETE',
+  //     dataType: 'JSON'
+  //   }).done( data => {
+  //     // least efficient way - easiest to understand
+  //       // this.fetchBoards();
+  //     // most efficient way - harder to understand
+  //     let boards = this.state.boards;
+  //     let index = boards.findIndex( b => b.id === id);
+  //     this.setState({
+  //       boards: [
+  //         ...boards.slice(0, index),
+  //         ...boards.slice(index + 1, boards.length)
+  //       ]
+  //     });
+  //   }).fail( data => {
+  //     console.log(data);
+  //   });
+  // }
 
 
 
